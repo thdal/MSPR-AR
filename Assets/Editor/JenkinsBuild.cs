@@ -39,7 +39,7 @@ public class JenkinsBuild {
       if (args[i] == "-executeMethod"){
       System.Console.WriteLine("debug script 1: " + i);
       System.Console.WriteLine("debug script 2: " + args.Length);
-      System.Console.WriteLine("debug script 2: " + args[i+2]);
+      System.Console.WriteLine("debug script 3: " + args[i+2]);
 
 
         if (i+3 < args.Length){
