@@ -28,7 +28,7 @@ public class JenkinsBuild {
     //   +2: VRDungeons
     //   +3: /Users/Shared/Jenkins/Home/jobs/VRDungeons/builds/47/output
     string[] args = System.Environment.GetCommandLineArgs();
-    System.Console.WriteLine("argument cherche : °" + args[args.Length -1]);
+    System.Console.WriteLine("argument cherche : " + args[args.Length -1]);
 
     for (int i=0; i<args.Length; i++){
           System.Console.WriteLine("argument n°" + i + " : "  + args[i]);
@@ -37,11 +37,16 @@ public class JenkinsBuild {
 
     for (int i=0; i<args.Length; i++){
       if (args[i] == "-executeMethod"){
-        if (i+3 < args.Length){
+      System.Console.WriteLine("debug script 1: " + i);
+      System.Console.WriteLine("debug script 2: " + args.Length);
+      System.Console.WriteLine("debug script 2: " + args[i+2]);
+
+
+        if (i+4 < args.Length){
           // BuildMacOS method is args[i+1]
-          appName = args[i+1];
-          targetDir = args[i+2];
-          i += 2;
+          appName = args[i+2];
+          targetDir = args[i+3];
+          i += 3;
         }
         else {
           System.Console.WriteLine("[JenkinsBuild] Incorrect Parameters for -executeMethod Format: -executeMethod BuildMacOS <app name> <output dir>");
@@ -51,8 +56,6 @@ public class JenkinsBuild {
     }
 
     // e.g. // /Users/Shared/Jenkins/Home/jobs/VRDungeons/builds/47/output/VRDungeons.app
-
-
     string fullPathAndName = targetDir + System.IO.Path.DirectorySeparatorChar + appName + ".app";
        System.Console.WriteLine("full path name :");
         System.Console.WriteLine(fullPathAndName);
