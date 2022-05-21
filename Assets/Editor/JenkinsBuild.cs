@@ -18,6 +18,8 @@ public class JenkinsBuild {
   // ------------------------------------------------------------------------
   public static void BuildMacOS(){
 
+    System.Console.WriteLine("Build Unit Project #1");
+
     string appName = "AppName";
     string targetDir = "~/Desktop";
 
@@ -26,6 +28,8 @@ public class JenkinsBuild {
     //   +2: VRDungeons
     //   +3: /Users/Shared/Jenkins/Home/jobs/VRDungeons/builds/47/output
     string[] args = System.Environment.GetCommandLineArgs();
+    System.Console.WriteLine(System.Environment.GetCommandLineArgs());
+
     for (int i=0; i<args.Length; i++){
       if (args[i] == "-executeMethod"){
         if (i+4 < args.Length){
