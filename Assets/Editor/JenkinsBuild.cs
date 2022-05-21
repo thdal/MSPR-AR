@@ -28,7 +28,7 @@ public class JenkinsBuild {
     //   +2: VRDungeons
     //   +3: /Users/Shared/Jenkins/Home/jobs/VRDungeons/builds/47/output
     string[] args = System.Environment.GetCommandLineArgs();
-              System.Console.WriteLine("argument cherche : °" + args[args.Length]);
+    System.Console.WriteLine("argument cherche : °" + args[args.Length]);
 
     for (int i=0; i<args.Length; i++){
           System.Console.WriteLine("argument n°" + i + " : "  + args[i]);
