@@ -51,6 +51,9 @@ public class JenkinsBuild {
     }
 
     // e.g. // /Users/Shared/Jenkins/Home/jobs/VRDungeons/builds/47/output/VRDungeons.app
+            System.Console.WriteLine("full path name :");
+        System.Console.WriteLine(fullPathAndName);
+
     string fullPathAndName = targetDir + System.IO.Path.DirectorySeparatorChar + appName + ".app";
     BuildProject(EnabledScenes, fullPathAndName, BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, BuildOptions.None);
   }
