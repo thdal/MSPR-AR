@@ -31,6 +31,11 @@ public class JenkinsBuild {
     System.Console.WriteLine(System.Environment.GetCommandLineArgs());
 
     for (int i=0; i<args.Length; i++){
+          System.Console.WriteLine("argument n°" + i + " : "  + args[i]);
+
+    }
+
+    for (int i=0; i<args.Length; i++){
       if (args[i] == "-executeMethod"){
         if (i+4 < args.Length){
           // BuildMacOS method is args[i+1]
