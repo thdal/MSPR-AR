@@ -42,7 +42,7 @@ public class JenkinsBuild {
       System.Console.WriteLine("debug script 2: " + args[i+2]);
 
 
-        if (i+4 < args.Length){
+        if (i+3 < args.Length){
           // BuildMacOS method is args[i+1]
           appName = args[i+2];
           targetDir = args[i+3];
