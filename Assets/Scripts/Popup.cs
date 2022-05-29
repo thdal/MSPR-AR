@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;  
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -65,11 +66,45 @@ public class Popup : MonoBehaviour
     		Debug.Log(_inputFieldName.text);
 			//post method
     		StartCoroutine(RequestUtils.postRequest(_inputFieldName.text, _inputFieldEmail.text));
+    		//Partage SNS
+    		Share();
     	});
 
     	_buttonClose.onClick.AddListener(() => {
     		GameObject.Destroy(this.gameObject);
     	});
 
+    }
+
+    public void Share()
+	{
+		StartCoroutine(TakeScreenShotAndShare());
+	}
+
+    private IEnumerator TakeScreenShotAndShare(){
+
+    	yield return new WaitForEndOfFrame();
+
+    	Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+    	ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+    	ss.Apply();
+
+    	string filePath = System.IO.Path.Combine(Application.temporaryCachePath, "share.png");
+    	System.IO.File.WriteAllBytes(filePath, ss.EncodeToPNG());
+
+    	Destroy(ss);
+
+    	new NativeShare().AddFile(filePath)
+    	.SetSubject(uniqHashtag(_inputFieldName.text)).SetText(uniqHashtag(_inputFieldName.text)).SetUrl("")
+    	.SetCallback((res, target) => Debug.Log($"result {res}, target app: {target}"))
+    	.Share();
+
+    }
+
+    public string uniqHashtag(string name)
+    {
+    	    var dateString = DateTime.Now.ToString("dd_MM_yyyy");
+    	    var hashtag = '#' + name + '_' + dateString;
+    	    return hashtag;
     }
 }

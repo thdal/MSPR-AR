@@ -11,8 +11,6 @@ namespace mspr
 	public class RequestUtils : MonoBehaviour
 	{	    
 
-		private static string urltmp = "https://5feaaf6a-63a1-416b-a758-bf549ad0c412.mock.pstmn.io/api/mspr/user";
-
 		private static string url = "https://us-central1-cerealis-a705c.cloudfunctions.net/newUsers";
 
 
