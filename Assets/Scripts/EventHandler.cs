@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class userFormTests : MonoBehaviour
+public class EventHandler : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

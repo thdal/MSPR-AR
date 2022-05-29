@@ -26,4 +26,4 @@ Material:
     m_Floats:
     - _transoutofbounds: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.36076182, g: 0.6226415, b: 0.34362763, a: 1}
