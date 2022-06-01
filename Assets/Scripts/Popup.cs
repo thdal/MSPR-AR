@@ -14,8 +14,9 @@ public class Popup : MonoBehaviour
 	[SerializeField] InputField _inputFieldName;
 	[SerializeField] InputField _inputFieldEmail;
     [SerializeField] Text _textFormErrorMsg;
+    public GameObject mainObject;
     private bool _error;
-
+    private Texture2D ss;
 
     // Start is called before the first frame update
    	void Start()
@@ -52,6 +53,11 @@ public class Popup : MonoBehaviour
 	}
 
     public void Init(Transform canvas){
+    	
+    	ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+	    ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+	    ss.Apply();
+
     	transform.SetParent(canvas);
 		transform.localScale = Vector3.one;
 		GetComponent<RectTransform>().offsetMin = Vector2.zero;
@@ -63,7 +69,6 @@ public class Popup : MonoBehaviour
 			if(_error){
 				return;
 			}
-    		Debug.Log(_inputFieldName.text);
 			//post method
     		StartCoroutine(RequestUtils.postRequest(_inputFieldName.text, _inputFieldEmail.text));
     		//Partage SNS
@@ -82,12 +87,11 @@ public class Popup : MonoBehaviour
 	}
 
     private IEnumerator TakeScreenShotAndShare(){
-
+    	
     	yield return new WaitForEndOfFrame();
 
-    	Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-    	ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-    	ss.Apply();
+		mainObject.SetActive(false);
+		//new WaitForSeconds(5);
 
     	string filePath = System.IO.Path.Combine(Application.temporaryCachePath, "share.png");
     	System.IO.File.WriteAllBytes(filePath, ss.EncodeToPNG());

@@ -613,6 +613,7 @@ MonoBehaviour:
   _inputFieldName: {fileID: 2759669957088309416}
   _inputFieldEmail: {fileID: 4610970670769926908}
   _textFormErrorMsg: {fileID: 7768931833262237704}
+  mainObject: {fileID: 2704976640573357041}
 --- !u!1 &3238640401192351160
 GameObject:
   m_ObjectHideFlags: 0
