@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "ce12160c3a2dc03c02",
         "name": "com.DefaultCompany.ARTest_MSPR",
-        "processId": 9404,
+        "processId": 24534,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -342,6 +342,18 @@
             "deviceId": "ce12160c3a2dc03c02",
             "name": "com.DefaultCompany.ARTest_MSPR",
             "processId": 9404,
+            "exited": false
+        },
+        {
+            "deviceId": "ce12160c3a2dc03c02",
+            "name": "com.DefaultCompany.ARTest_MSPR",
+            "processId": 18759,
+            "exited": false
+        },
+        {
+            "deviceId": "ce12160c3a2dc03c02",
+            "name": "com.DefaultCompany.ARTest_MSPR",
+            "processId": 24534,
             "exited": false
         }
     ],
